@@ -13,6 +13,7 @@ up.addEventListener('click', uploadToImgur);
 
 text1.addEventListener('keyup', updateImage);
 text2.addEventListener('keyup', updateImage);
+textSize.addEventListener('keyup', updateImage);
 file.addEventListener('change', changeAndUpdateImage);
 
 
