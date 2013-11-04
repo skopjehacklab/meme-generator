@@ -105,7 +105,7 @@ function autoScale(input, max) {
 
 
 function uploadToImgur() {
-
+    uploaded.innerHTML = "Please wait, uploading...";
     var img;
     try {
         img = canvas.toDataURL('image/png', 1.0).split(',')[1];
