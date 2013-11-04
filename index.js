@@ -128,7 +128,7 @@ function uploadToImgur() {
         dataType: 'json'
     }).success(function(data) {
         var l = data.data.link;
-        uploaded.innerHTML = '<a href="' + l + '">'
+        uploaded.innerHTML = '<a href="' + l + '" target="_blank">'
         + l
         + '</a>';
     }).error(function(err) {
