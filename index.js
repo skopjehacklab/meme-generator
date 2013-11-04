@@ -2,7 +2,7 @@
 var up = document.getElementById('upload'),
     text1 = document.getElementById('text1'),
     text2 = document.getElementById('text2'),
-    textSize = document.getElementById('textSize'),
+    sliderSize = document.getElementById('sliderSize'),
     file  = document.getElementById('image'),
     canvas = document.getElementById('canvas'),
     uploaded = document.getElementById('uploaded');
@@ -13,7 +13,7 @@ up.addEventListener('click', uploadToImgur);
 
 text1.addEventListener('keyup', updateImage);
 text2.addEventListener('keyup', updateImage);
-textSize.addEventListener('keyup', updateImage);
+sliderSize.addEventListener('change', updateImage);
 file.addEventListener('change', changeAndUpdateImage);
 
 
@@ -58,7 +58,7 @@ function drawLines(ctx, lines, x, y, yStep) {
 }
 
 function updateImage() {
-    var txtSize = parseFloat(textSize.value) || 24;
+    var txtSize = parseFloat(sliderSize.value) || 24;
 
     if (!curImg) return;
     
@@ -89,14 +89,11 @@ function uploadToImgur() {
     } catch(e) {
         img = canvas.toDataURL().split(',')[1];
     }
-
-    console.log(img);
     $.ajax({
         url: 'https://api.imgur.com/3/upload.json',
         type: 'POST',
         data: {
             type: 'base64',
-            // get your key here, quick and fast http://imgur.com/register/api_anon
             name: 'meme.png',
             title: text1.value,
             description: text2.value,
