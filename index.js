@@ -91,7 +91,7 @@ function updateImage() {
     ctx.font = txtSize + "px Impact";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = Math.round(Math.max(1, txtSize / 12));
 
     drawLines(ctx, text1.value, canvas.width / 2, 
               txtSize * PARAGRAPH_HEIGHT / 2, LINE_HEIGHT * txtSize);
