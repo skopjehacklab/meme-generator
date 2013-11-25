@@ -6,7 +6,8 @@ var up = document.getElementById('upload'),
     sliderImage = document.getElementById('sliderImage'),
     file  = document.getElementById('image'),
     canvas = document.getElementById('canvas'),
-    uploaded = document.getElementById('uploaded');
+    uploaded = document.getElementById('uploaded'),
+    placeholder_image = document.getElementById('placeholder_image');
 
 up.addEventListener('click', uploadToImgur);
 
@@ -15,7 +16,6 @@ text2.addEventListener('keyup', updateImage);
 sliderSize.addEventListener('change', updateImage);
 sliderImage.addEventListener('change', updateImage);
 file.addEventListener('change', changeAndUpdateImage);
-
 
 function readFile(fileInput, callback) {
     var f = fileInput.files[0];
@@ -29,6 +29,12 @@ function readFile(fileInput, callback) {
 }
 
 var curImg = null;
+
+placeholder_image.onload = function() {
+    curImg = placeholder_image;
+    updateImage();
+}
+
 function changeAndUpdateImage() {
     var img = new Image();
     readFile(file, function(dataURL) {
