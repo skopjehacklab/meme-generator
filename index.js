@@ -67,7 +67,7 @@ function drawLines(ctx, lines, x, y, yStep) {
 
 function updateImage() {
     var LINE_HEIGHT = 1.1;
-    var PARAGRAPH_HEIGHT = 1.4;
+    var PARAGRAPH_HEIGHT = 1.5;
     
     var imgSizeLimit = parseFloat(sliderImage.value);
 
