@@ -1,25 +1,50 @@
 <html>
 <head>
 <title>Meme generator</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<style type="text/css">
+
+    #main {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .caption {
+        width: 100%;
+    }
+    table td {
+        padding-right: 10px;
+    }
+    textarea {
+        text-align: center;
+        font-size: 22px;
+        height: 3em;
+    }
+</style>
 </head>
 <body>
-
-    Base: <input type="file" id="image"><br>
-    Upper:<br> 
-    <textarea id="text1" cols="60" rows="3"></textarea><br>
-    Lower:<br> 
-    <textarea id="text2" cols="60" rows="3"></textarea><br>
-    Font: <input type="range" id="sliderSize" value="20" min="10" max="72"><br>
-    Image: <input type="range" id="sliderImage" value="480" min="240" max="960"><br>
-    <canvas id="canvas">
-    </canvas>
-    <br>
-    <button id="upload">Upload to imgur</button>
-    <div id="uploaded">Link will appear here</div>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js">
-    </script>
-    <script type="text/javascript" src="index.js">
-    </script>
-
+    <div id="main">
+        <div id="header">
+            <h2>Meme Generator</h2>
+            <br>
+        </div>
+        <div style="font-size: 20px">Upload an image from your computer:</div>
+        <input type="file" id="image"><br>
+        <textarea class="caption" id="text1" cols="60" rows="3" placeholder="Top text"></textarea><br>
+        <canvas id="canvas"></canvas>
+        <textarea class="caption" id="text2" cols="60" rows="3" placeholder="Bottom text"></textarea><br><br>
+        <table>
+            <tr><td>Font size:</td><td><input type="range" id="sliderSize" value="50" min="10" max="72"></td></tr>
+            <tr><td>Image size:</td><td><input type="range" id="sliderImage" value="600" min="240" max="600"></td></tr>
+        </table>
+        <br>
+        <button id="upload" class="btn btn-primary btn-lg">Upload!</button>
+        <div id="uploaded" style="color: gray">Link will appear here</div>
+        <br><br><br><br>
+        <img id="placeholder_image" src="http://s3.amazonaws.com/rapgenius/1345250029_Good-guy-greg.png" style="display: none">
+        <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
