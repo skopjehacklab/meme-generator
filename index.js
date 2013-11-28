@@ -84,15 +84,15 @@ function updateImage() {
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(curImg, 0, 0, canvas.width, canvas.height);
-    ctx.font = txtSize + "px Arial";
+    ctx.font = '700 ' + txtSize + "px Impact";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 5;
 
     drawLines(ctx, text1.value, canvas.width / 2, 
-              txtSize, 1.33 * txtSize);
+              txtSize, 1.10 * txtSize);
     drawLines(ctx, text2.value, canvas.width / 2, 
-              canvas.height - txtSize, -1.33 * txtSize );
+              canvas.height - txtSize, -1.10 * txtSize );
 
     console.log(text1.value, text2.value);
 }
