@@ -63,7 +63,11 @@ function drawLines(ctx, lines, x, y, yStep) {
     });
 }
 
+
+
 function updateImage() {
+    var LINE_HEIGHT = 1.1;
+    var PARAGRAPH_HEIGHT = 1.5;
     
     var imgSizeLimit = parseFloat(sliderImage.value);
 
@@ -84,15 +88,16 @@ function updateImage() {
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(curImg, 0, 0, canvas.width, canvas.height);
-    ctx.font = '700 ' + txtSize + "px Impact";
+
+    ctx.font = txtSize + "px Impact";
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.lineWidth = 5;
+    ctx.lineWidth = Math.round(Math.max(1, txtSize / 12));
 
     drawLines(ctx, text1.value, canvas.width / 2, 
-              txtSize, 1.10 * txtSize);
+              txtSize * PARAGRAPH_HEIGHT / 2, LINE_HEIGHT * txtSize);
     drawLines(ctx, text2.value, canvas.width / 2, 
-              canvas.height - txtSize, -1.10 * txtSize );
+              canvas.height - txtSize * PARAGRAPH_HEIGHT / 2, -1 * LINE_HEIGHT * txtSize );
 
     console.log(text1.value, text2.value);
 }
@@ -142,3 +147,4 @@ function uploadToImgur() {
     });
 
 }
+
